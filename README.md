@@ -76,7 +76,7 @@ One of the most important elements is the evaluation of the action as it allows 
 These are optional and zones can be from 1 to 9. One important thing that when we enter only one zone it means different things depending on the action type:
 
 ```
-12S+9  > Served TO zone 9
+12S+9   > Served TO zone 9
 12R=2   > Reception FROM the zone 2
 12P=2   > Pass TO the zone 2
 12A*3   > Attack FROM the zone 3
@@ -94,6 +94,10 @@ These are the tasks needed to consider Tato v1:
 - [ ] CLI 
 - [ ] Game start/end
 - [ ] Simple Game statistics (TBD)
+
+Nice to have:
+
+- [ ] Kind autocompletion 
 
 
 
