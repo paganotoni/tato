@@ -86,6 +86,15 @@ These are optional and zones can be from 1 to 9. One important thing that when w
 
 When both specified the first is starting and the second is ending zone.
 
+## v1 Tasks
+
+These are the tasks needed to consider Tato v1:
+
+- [x] Action parsing
+- [ ] CLI 
+- [ ] Game start/end
+- [ ] Simple Game statistics (TBD)
+
 
 
 
