@@ -10,16 +10,148 @@
     <script src="/static/base.js"></script>
 </head>
 <body class="bg-blue-100 min-h-screen p-5">
-    <div class="grid grid-cols-4 h-full gap-5 max-w-[1600px] mx-auto">
+    <div class="grid grid-cols-4 h-full gap-5 mx-auto">
         <div class="col-span-3 pl-5">
-            <header class="flex flex-row w-full gap-5 items-center">
-                <h1 class="flex text-2xl font-bold w-[120px]">TATO</h1>
+            <header class="flex flex-row w-full items-center mb-2">
+                <h1 class="flex text-2xl font-bold w-[120px]"> 
+                    <span class="bg-white rounded-full p-4 py-2.5"> > Tato</span>
+                </h1>
                 <div class="flex flex-grow">
                     <input type="text" id="cmd-input" class="p-3 rounded-lg text-lg w-full" placeholder="> Enter action codes here, p.e 12A+ and return to process" autofocus >
                 </div>
             </header>
+            <div class="pl-[120px] grid grid-cols-3 gap-5">
+                <div class="pt-8">
+                    <div class="flex flex-col p-10 bg-white">
+                        <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">K1 - Distribution</h3>
+                        <div class="border-2 border-gray-700">
+                            <div class="grid grid-cols-3 h-20 text-sm">
+                                <div class="grid grid-cols-2 text-center">
+                                    <span id="zone-4-total">12</span>
+                                    <span id="zone-4-%">36%</span>
+                                    <span id="zone-4-*%">42%</span>
+                                    <span id="zone-4-=%">33%</span>
+                                </div>   
+                            
+                                <div class="grid grid-cols-2 text-center border-x border-gray-700">
+                                    <span id="zone-3-total">12</span>
+                                    <span id="zone-3-%">36%</span>
+                                    <span id="zone-3-*%">42%</span>
+                                    <span id="zone-3-=%">33%</span>
+                                </div>
+                                <div class="grid grid-cols-2 text-center">
+                                    <span id="zone-2-total">12</span>
+                                    <span id="zone-2-%">36%</span>
+                                    <span id="zone-2-*%">42%</span>
+                                    <span id="zone-2-=%">33%</span>
+                                </div>
+                            </div>
+                            <div class="border-t-2 border-gray-700 h-40 grid grid-cols-3 text-sm">
+                                <div class="grid grid-cols-2 text-center">
+                                    <span id="zone-5-total">0</span>
+                                    <span id="zone-5-%">0%</span>
+                                    <span id="zone-5-*%">0%</span>
+                                    <span id="zone-5-=%">0%</span>
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>   
+                            
+                                <div class="grid grid-cols-2 text-center border-x border-gray-700">
+                                    <span id="zone-6-total">0</span>
+                                    <span id="zone-6-%">0%</span>
+                                    <span id="zone-6-*%">0%</span>
+                                    <span id="zone-6-=%">0%</span>
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="grid grid-cols-2 text-center">
+                                    <span id="zone-1-total">0</span>
+                                    <span id="zone-1-%">0%</span>
+                                    <span id="zone-1-*%">0%</span>
+                                    <span id="zone-1-=%">0%</span>
+
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-4 text-center pt-3 px-5 justify-start">
+                            <div class="flex flex-col">
+                                <span class="text-xs">TOT</span>
+                                <span id="total-attacks">33</span>
+                            </div>
+
+                            <div class="flex flex-col">
+                                <span class="text-xs">TOT%</span>
+                                <span>100%</span>
+                            </div>
+
+                            <div class="flex flex-col">
+                                <span class="text-xs">A*%</span>
+                                <span>33</span>
+                            </div>
+
+                            <div class="flex flex-col">
+                                <span class="text-xs">A=%</span>
+                                <span>33</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-8">
+                    <div class="flex flex-col p-10 bg-white">
+                        <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">Heatmap</h3>
+                        <div class="border-2 border-gray-700">
+                            <div class="grid grid-cols-3 h-20">
+                                <div class="grid grid-cols-2 text-center">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>   
+                            
+                                <div class="grid grid-cols-2 text-center border-x border-gray-700">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="grid grid-cols-2 text-center">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                            </div>
+                            <div class="flex flex-row border-t-2 border-gray-700 h-20">
+                                <div class="flex-grow text-center"></div>
+                                <div class="flex-grow text-center h-20 border-x border-gray-700"></div>
+                                <div class="flex-grow text-center h-20"></div>
+                            </div>
+                            <div class="flex flex-row">
+                                <div class="flex-grow text-center"></div>
+                                <div class="flex-grow text-center h-20 border-x border-gray-700"></div>
+                                <div class="flex-grow text-center h-20"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+            </div>
+            
+
         </div>
-        <div class="col-span-1 bg-gray-100 p-4 h-full rounded-lg">
+        <div class="col-span-1 bg-gray-100 p-4 max-h-full rounded-lg">
             <h2 class="text-sm mb-2 text-gray-500">Recorded Actions (<span id="actions-count">0</span>)</h2>
             <ol class="flex flex-col gap-2 h-full" id="actions-list"></ol>
         </div>
