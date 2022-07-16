@@ -5,5 +5,7 @@ CREATE TABLE IF NOT EXISTS actions (
     class TEXT,
     evaluation TEXT,
     starting_zone TEXT,
-    ending_zone TEXT
+    ending_zone TEXT,
+
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

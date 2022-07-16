@@ -17,7 +17,7 @@ var (
 type Action struct {
 	ID string
 
-	Timestamp time.Time
+	CreatedAt time.Time
 	Player    string
 
 	Kind         string
@@ -68,7 +68,7 @@ func Parse(input string) (*Action, error) {
 	ac := &Action{
 		ID: uuid.Must(uuid.NewV4()).String(),
 
-		Timestamp: time.Now(),
+		CreatedAt: time.Now(),
 		Player:    parsed[0][1],
 
 		Kind:       parsed[0][2],

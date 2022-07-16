@@ -2,16 +2,15 @@ package actions
 
 import (
 	"context"
-	"database/sql"
 
 	"github.com/paganotoni/tato"
 )
 
-type storage interface {
-	Create(context.Context, tato.Action) error
-	List(context.Context) []tato.Action
-}
+// Shared service implementation, can be overriden when
+// testing.
+var Storage service = &sqliteStorage{}
 
-func NewSQLiteStorage(db *sql.DB) storage {
-	return &sqliteStorage{db: db}
+type service interface {
+	Create(context.Context, tato.Action) error
+	List(context.Context) ([]tato.Action, error)
 }

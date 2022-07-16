@@ -32,6 +32,8 @@ function refreshActions() {
     fetch('/api/actions/list').then(response => {
         return response.json();
     }).then(data => {
+        document.getElementById("actions-count").innerHTML = data.length
+        
         data.forEach(action => {
             actionsList.insertAdjacentHTML('beforeend', `<li class="bg-white border-l-2  border-red-300 p-2 shadow-sm">${action.full}</li>`);
         });

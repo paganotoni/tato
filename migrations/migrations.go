@@ -9,15 +9,10 @@ import (
 //go:embed *.sql
 var all embed.FS
 
-func Run(dsn string) (*sql.DB, error) {
-	db, err := sql.Open("sqlite3", dsn)
-	if err != nil {
-		return nil, fmt.Errorf("error opening database: %v", err)
-	}
-
+func Run(db *sql.DB) error {
 	entries, err := all.ReadDir(".")
 	if err != nil {
-		return nil, fmt.Errorf("error reading migrations: %v", err)
+		return fmt.Errorf("error reading migrations: %v", err)
 	}
 
 	for _, entry := range entries {
@@ -27,14 +22,14 @@ func Run(dsn string) (*sql.DB, error) {
 
 		content, err := all.ReadFile(entry.Name())
 		if err != nil {
-			return nil, err
+			return err
 		}
 
 		_, err = db.Exec(string(content))
 		if err != nil {
-			return nil, err
+			return err
 		}
 	}
 
-	return db, nil
+	return nil
 }

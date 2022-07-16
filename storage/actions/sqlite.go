@@ -2,10 +2,11 @@ package actions
 
 import (
 	"context"
-	"database/sql"
 	_ "embed"
+	"fmt"
 
 	"github.com/paganotoni/tato"
+	"github.com/paganotoni/tato/storage"
 )
 
 var (
@@ -15,12 +16,10 @@ var (
 	listQuery string
 )
 
-type sqliteStorage struct {
-	db *sql.DB
-}
+type sqliteStorage struct{}
 
 func (ss *sqliteStorage) Create(ctx context.Context, ac tato.Action) error {
-	_, err := ss.db.ExecContext(
+	_, err := storage.DB.ExecContext(
 		ctx,
 		insertStatement,
 
@@ -31,16 +30,22 @@ func (ss *sqliteStorage) Create(ctx context.Context, ac tato.Action) error {
 		ac.Evaluation,
 		ac.StartingZone,
 		ac.EndingZone,
+		ac.CreatedAt,
 	)
 
-	return err
+	if err != nil {
+		return fmt.Errorf("error creating action: %w", err)
+	}
+
+	return nil
 }
 
-func (ss *sqliteStorage) List(ctx context.Context) []tato.Action {
+func (ss *sqliteStorage) List(ctx context.Context) ([]tato.Action, error) {
 	var result []tato.Action
-	rows, err := ss.db.QueryContext(ctx, listQuery)
+
+	rows, err := storage.DB.QueryContext(ctx, listQuery)
 	if err != nil {
-		return result
+		return result, fmt.Errorf("error listing actions: %w", err)
 	}
 
 	for rows.Next() {
@@ -53,14 +58,15 @@ func (ss *sqliteStorage) List(ctx context.Context) []tato.Action {
 			&ac.Evaluation,
 			&ac.StartingZone,
 			&ac.EndingZone,
-			&ac.Timestamp,
+			&ac.CreatedAt,
 		)
+
 		if err != nil {
-			continue
+			return result, fmt.Errorf("error scanning actions result: %w", err)
 		}
 
 		result = append(result, ac)
 	}
 
-	return result
+	return result, nil
 }

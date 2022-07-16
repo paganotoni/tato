@@ -1,7 +1,6 @@
 package actions
 
 import (
-	"database/sql"
 	"encoding/json"
 	"fmt"
 	"io"
@@ -11,38 +10,34 @@ import (
 	"github.com/paganotoni/tato/storage/actions"
 )
 
-func Create(db *sql.DB) http.HandlerFunc {
-	return func(w http.ResponseWriter, r *http.Request) {
-		data, err := io.ReadAll(r.Body)
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-			return
-		}
+func Create(w http.ResponseWriter, r *http.Request) {
+	data, err := io.ReadAll(r.Body)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		return
+	}
 
-		action := struct {
-			Input string `json:"input"`
-		}{}
+	action := struct {
+		Input string `json:"input"`
+	}{}
 
-		err = json.Unmarshal(data, &action)
-		if err != nil {
-			w.WriteHeader(http.StatusInternalServerError)
-		}
+	err = json.Unmarshal(data, &action)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+	}
 
-		a, err := tato.Parse(action.Input)
-		if err != nil {
-			w.WriteHeader(http.StatusUnprocessableEntity)
+	a, err := tato.Parse(action.Input)
+	if err != nil {
+		w.WriteHeader(http.StatusUnprocessableEntity)
 
-			return
-		}
+		return
+	}
 
-		prv := actions.NewSQLiteStorage(db)
-		err = prv.Create(r.Context(), *a)
-		if err != nil {
-			fmt.Println("Error creating the action:", err)
+	err = actions.Storage.Create(r.Context(), *a)
+	if err != nil {
+		fmt.Println("Error creating the action: %w", err)
+		w.WriteHeader(http.StatusInternalServerError)
 
-			w.WriteHeader(http.StatusInternalServerError)
-
-			return
-		}
+		return
 	}
 }
