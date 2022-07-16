@@ -1,0 +1,10 @@
+ SELECT
+    id, 
+    player, 
+    kind, 
+    class, 
+    evaluation, 
+    starting_zone, 
+    ending_zone
+FROM
+    actions

@@ -4,6 +4,8 @@ import (
 	"errors"
 	"regexp"
 	"time"
+
+	"github.com/gofrs/uuid"
 )
 
 var (
@@ -13,6 +15,8 @@ var (
 
 // Action in the game
 type Action struct {
+	ID string
+
 	Timestamp time.Time
 	Player    string
 
@@ -51,6 +55,10 @@ func (a *Action) AddZone(zones string) {
 
 }
 
+func (a Action) Full() string {
+	return a.Player + a.Kind + a.Class + a.Evaluation + a.StartingZone + a.EndingZone
+}
+
 func Parse(input string) (*Action, error) {
 	if !actionRegex.MatchString(input) {
 		return &Action{}, ErrInvalidAction
@@ -58,6 +66,8 @@ func Parse(input string) (*Action, error) {
 
 	parsed := actionRegex.FindAllStringSubmatch(input, -1)
 	ac := &Action{
+		ID: uuid.Must(uuid.NewV4()).String(),
+
 		Timestamp: time.Now(),
 		Player:    parsed[0][1],
 
