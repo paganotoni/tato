@@ -1,6 +1,6 @@
 # Tato
 
-Tato is a simple implementation of a Volleyball statistics CLI, its primary goal is to provide a simple way to capture in-game statistics through the Tato code, which is specifically designed for it.
+Tato is a simple implementation of a Volleyball statistics Web application, its primary goal is to provide a simple way to capture in-game statistics through the Tato code, which is specifically designed for it.
 
 ## Installation
 
@@ -86,18 +86,27 @@ These are optional and zones can be from 1 to 9. One important thing that when w
 
 When both specified the first is starting and the second is ending zone.
 
-## v1 Tasks
+## Product features
 
-These are the tasks needed to consider Tato v1:
+These are the features Tato has.
 
+Core
 - [x] Action parsing
-- [ ] CLI 
-- [ ] Game start/end
-- [ ] Simple Game statistics (TBD)
+- [ ] Storage
+- [ ] Setter position tracking (P1-P6)
+- [ ] Service tracking
+- [ ] Compound codes (e.g. 12S+9,2,7*4)
+- [ ] Kind autocompletion (p.e. 8S= and then 12+)
 
-Nice to have:
+UI
+- [ ] Feature: Capture Actions
+- [ ] Feature: List of captured actions
+- [ ] Feature: Remove action
+- [ ] Feature: Distribution of actions 
 
-- [ ] Kind autocompletion 
+Roadmap:
+- Games, Sets, Points 
+
 
 
 
