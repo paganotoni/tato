@@ -21,7 +21,7 @@ func TestDestroy(t *testing.T) {
 		sta.Storage = mst
 
 		w := httptest.NewRecorder()
-		r := httptest.NewRequest("DELETE", "/actions/1", nil)
+		r := httptest.NewRequest("DELETE", "/api/actions/destroy/1", nil)
 
 		actions.Destroy(w, r)
 		if len(mst.Actions) != 1 {
@@ -42,7 +42,7 @@ func TestDestroy(t *testing.T) {
 		sta.Storage = mst
 
 		w := httptest.NewRecorder()
-		r := httptest.NewRequest("DELETE", "/actions/"+ac.ID, nil)
+		r := httptest.NewRequest("DELETE", "/api/actions/destroy/"+ac.ID, nil)
 
 		actions.Destroy(w, r)
 		if len(mst.Actions) != 0 {
