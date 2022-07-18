@@ -26,9 +26,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function actionHTML(action) {
-    return `<li class="bg-white border-l-2 border-red-300 p-2 shadow-sm flex flex-row">
+    return `<li class="bg-white border-l-2 border-red-300 p-2 shadow-sm flex flex-row gap-1 items-center">
+        <span class="text-xs rounded-full bg-red-100 p-0.5 px-1">P6</span>
+        <span class="text-xs rounded-full bg-blue-100 p-0.5 px-1">P3</span>
         <span class="flex-grow">${action.full}</span> 
-        <span class="delete underline cursor-pointer" data-id="${action.ID}">Delete</span>
+        <a class="delete cursor-pointer text-red-700" data-id="${action.ID}">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+        </a>
     </li>`
 }
 
@@ -36,10 +42,12 @@ function deleteAction(id) {
     fetch('/api/actions/destroy/'+id, {
         method: 'DELETE',
     }).then(response => {
-        console.log(response.status)
-    })
+        if(response.status != 200){
+            return
+        }
 
-    refreshActions();
+        refreshActions();
+    })
 }
 
 function refreshActions() {
@@ -56,7 +64,9 @@ function refreshActions() {
         });
 
         document.querySelectorAll('#actions-list li .delete').forEach(span => {
-            span.addEventListener('click', (e) => deleteAction(e.target.dataset.id));
+            span.addEventListener('click', (e) => {
+                deleteAction(span.dataset.id)
+            });
         })
     })
 
@@ -82,17 +92,17 @@ function refreshActions() {
 
             let perel = document.getElementById(`zone-${key}-%`)
             if(perel != null) {
-                perel.innerHTML = roundToTwo(data[key]["percentage"] * 100) + '%';
+                perel.innerHTML = roundTo(1, data[key]["percentage"] * 100) + '%';
             }
 
             let errel = document.getElementById(`zone-${key}-=%`)
             if(errel != null) {
-                errel.innerHTML = roundToTwo(data[key]["%="] * 100) + '%';
+                errel.innerHTML = roundTo(1, data[key]["%="] * 100) + '%';
             }
 
             let pefel = document.getElementById(`zone-${key}-*%`)
             if(pefel != null) {
-                pefel.innerHTML = roundToTwo(data[key]["%*"] * 100) + '%';
+                pefel.innerHTML = roundTo(1, data[key]["%*"] * 100) + '%';
             }
         }
     })
@@ -100,6 +110,6 @@ function refreshActions() {
     
 }
 
-function roundToTwo(num) {
-    return +(Math.round(num + "e+2")  + "e-2");
+function roundTo(dec, num) {
+    return +(Math.round(num + "e+"+dec)  + "e-"+dec);
 }

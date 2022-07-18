@@ -14,11 +14,19 @@
 <body class="bg-blue-100 min-h-screen p-5">
     <div class="grid grid-cols-5 h-full gap-5 mx-auto">
         <div class="col-span-4 pl-5">
-            <header class="flex flex-row w-full items-center mb-2">
-                <h1 class="flex text-2xl font-bold w-[120px]"> 
+            <header class="flex flex-row w-full jusitfy-items-center mb-2">
+                <h1 class="flex text-2xl font-bold w-[120px] items-start"> 
                     <span class="bg-white rounded-full p-4 py-2.5"> > Tato</span>
                 </h1>
-                <div class="flex flex-grow">
+                
+                <div class="flex flex-grow flex-col">
+                    <div class="bg-gray-100 rounded w-full p-2 px-4 rounded-lg mb-2 flex flex-row align-center"> 
+                        <span class="font-bold"> ATL vs RUS </span>
+                        <span class="flex flex-row flex-grow justify-end gap-2">
+                            <span class="rounded-full bg-red-200 px-1.5 py-1 font-bold text-xs">P1</span>
+                            <span class="rounded-full bg-blue-200 px-1.5 py-1 font-bold text-xs">P3</span>    
+                        </span>
+                    </div>
                     <input type="text" id="cmd-input" class="p-3 rounded-lg text-lg w-full" placeholder="> Enter action codes here, p.e 12A+ and return to process" autofocus >
                 </div>
             </header>
@@ -28,28 +36,28 @@
                         <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">K1 - Distribution</h3>
                         <div class="border-2 border-gray-700 text-xs">
                             <div class="grid grid-cols-3 h-20">
-                                <div class="grid grid-cols-2 text-center px-2">
-                                    <span id="zone-4-total">12</span>
-                                    <span id="zone-4-%">36%</span>
-                                    <span id="zone-4-*%">42%</span>
-                                    <span id="zone-4-=%">33%</span>
+                                <div class="grid grid-cols-2 text-center p-2">
+                                    <span id="zone-4-total">0</span>
+                                    <span id="zone-4-%">0%</span>
+                                    <span id="zone-4-*%">0%</span>
+                                    <span id="zone-4-=%">0%</span>
                                 </div>   
                             
-                                <div class="grid grid-cols-2 text-center border-x border-gray-700">
-                                    <span id="zone-3-total">12</span>
-                                    <span id="zone-3-%">36%</span>
-                                    <span id="zone-3-*%">42%</span>
-                                    <span id="zone-3-=%">33%</span>
+                                <div class="grid grid-cols-2 text-center border-x border-gray-700 py-2">
+                                    <span id="zone-3-total">0</span>
+                                    <span id="zone-3-%">0%</span>
+                                    <span id="zone-3-*%">0%</span>
+                                    <span id="zone-3-=%">0%</span>
                                 </div>
-                                <div class="grid grid-cols-2 text-center">
-                                    <span id="zone-2-total">12</span>
-                                    <span id="zone-2-%">36%</span>
-                                    <span id="zone-2-*%">42%</span>
-                                    <span id="zone-2-=%">33%</span>
+                                <div class="grid grid-cols-2 text-center p-2">
+                                    <span id="zone-2-total">0</span>
+                                    <span id="zone-2-%">0%</span>
+                                    <span id="zone-2-*%">0%</span>
+                                    <span id="zone-2-=%">0%</span>
                                 </div>
                             </div>
-                            <div class="border-t-2 border-gray-700 h-40 grid grid-cols-3">
-                                <div class="grid grid-cols-2 text-center">
+                            <div class="border-t-2 border-gray-700 h-32 grid grid-cols-3">
+                                <div class="grid grid-cols-2 text-center p-2">
                                     <span id="zone-5-total">0</span>
                                     <span id="zone-5-%">0%</span>
                                     <span id="zone-5-*%">0%</span>
@@ -61,7 +69,7 @@
                                     <span></span>
                                 </div>   
                             
-                                <div class="grid grid-cols-2 text-center border-x border-gray-700">
+                                <div class="grid grid-cols-2 text-center border-x border-gray-700 p-2">
                                     <span id="zone-6-total">0</span>
                                     <span id="zone-6-%">0%</span>
                                     <span id="zone-6-*%">0%</span>
@@ -72,7 +80,7 @@
                                     <span></span>
                                     <span></span>
                                 </div>
-                                <div class="grid grid-cols-2 text-center">
+                                <div class="grid grid-cols-2 text-center p-2">
                                     <span id="zone-1-total">0</span>
                                     <span id="zone-1-%">0%</span>
                                     <span id="zone-1-*%">0%</span>
@@ -86,25 +94,25 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="grid grid-cols-4 text-center pt-3 px-5 justify-start">
+                        <div class="grid grid-cols-4 text-center pt-3 px-2 justify-start">
                             <div class="flex flex-col">
-                                <span class="text-xs">TOT</span>
+                                <span class="text-xs font-bold">TOT</span>
                                 <span id="total-attacks">33</span>
                             </div>
 
                             <div class="flex flex-col">
-                                <span class="text-xs">TOT%</span>
+                                <span class="text-xs font-bold">TOT%</span>
                                 <span>100%</span>
                             </div>
 
                             <div class="flex flex-col">
-                                <span class="text-xs">A*%</span>
-                                <span>33</span>
+                                <span class="text-xs font-bold">A*%</span>
+                                <span>0</span>
                             </div>
 
                             <div class="flex flex-col">
-                                <span class="text-xs">A=%</span>
-                                <span>33</span>
+                                <span class="text-xs font-bold">A=%</span>
+                                <span>0</span>
                             </div>
                         </div>
                     </div>
