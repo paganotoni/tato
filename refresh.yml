@@ -1,6 +1,6 @@
 app_root: .
 binary_name: refresh-build
-build_delay: 200ns
+build_delay: 200ms
 build_flags: []
 build_path: /var/folders/z2/ww9zt7zn5qdbllrs2c9qcc780000gn/T/
 build_target_path: "./cmd/tato"
@@ -20,4 +20,5 @@ included_extensions:
 - .html
 - .js
 - .sql
+- .css
 log_name: "✨"

@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	//go:embed *.js
+	//go:embed *.js *.css
 	fs     embed.FS
 	Server = http.FileServer(http.FS(fs))
 )

@@ -8,6 +8,8 @@
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="/static/base.js"></script>
+
+    <link rel="stylesheet" href="/static/base.css">
 </head>
 <body class="bg-blue-100 min-h-screen p-5">
     <div class="grid grid-cols-4 h-full gap-5 mx-auto">
@@ -151,9 +153,12 @@
             
 
         </div>
-        <div class="col-span-1 bg-gray-100 p-4 max-h-full rounded-lg">
+        <div class="col-span-1 bg-gray-100 p-4 max-h-screen rounded-lg">
             <h2 class="text-sm mb-2 text-gray-500">Recorded Actions (<span id="actions-count">0</span>)</h2>
-            <ol class="flex flex-col gap-2 h-full" id="actions-list"></ol>
+            <div class="overflow-scroll" id="actions-container">
+                <ol class="flex flex-col gap-2 h-full" id="actions-list"></ol>
+            </div>
+            
         </div>
     </div>
 </body>
