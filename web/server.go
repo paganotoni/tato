@@ -13,6 +13,8 @@ func Server() http.Handler {
 
 	server.HandleFunc("/api/actions/create", actions.Create) //TODO: Only POST!
 	server.HandleFunc("/api/actions/list", actions.List)
+	server.HandleFunc("/api/actions/destroy/", actions.Destroy)
+
 	server.HandleFunc("/api/stats/k1-distribution", actions.Distribution)
 
 	server.Handle("/static/", http.StripPrefix("/static/", assets.Server))

@@ -70,3 +70,8 @@ func (ss *sqliteStorage) List(ctx context.Context) ([]tato.Action, error) {
 
 	return result, nil
 }
+
+func (ss *sqliteStorage) Destroy(ctx context.Context, id string) error {
+	_, err := storage.DB.ExecContext(ctx, "DELETE FROM actions WHERE id = ?", id)
+	return err
+}

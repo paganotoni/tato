@@ -25,6 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 });
 
+function actionHTML(action) {
+    return `<li class="bg-white border-l-2 border-red-300 p-2 shadow-sm flex flex-row">
+        <span class="flex-grow">${action.full}</span> 
+        <span class="delete underline cursor-pointer" data-id="${action.ID}">Delete</span>
+    </li>`
+}
+
+function deleteAction(id) {
+    fetch('/api/actions/destroy/'+id, {
+        method: 'DELETE',
+    }).then(response => {
+        console.log(response.status)
+    })
+
+    refreshActions();
+}
+
 function refreshActions() {
     let actionsList = document.querySelector('#actions-list');
     actionsList.innerHTML = '';
@@ -35,8 +52,12 @@ function refreshActions() {
         document.getElementById("actions-count").innerHTML = data.length
 
         data.forEach(action => {
-            actionsList.insertAdjacentHTML('beforeend', `<li class="bg-white border-l-2  border-red-300 p-2 shadow-sm">${action.full}</li>`);
+            actionsList.insertAdjacentHTML('beforeend', actionHTML(action));
         });
+
+        document.querySelectorAll('#actions-list li .delete').forEach(span => {
+            span.addEventListener('click', (e) => deleteAction(e.target.dataset.id));
+        })
     })
 
     fetch('/api/stats/k1-distribution').then(response => {

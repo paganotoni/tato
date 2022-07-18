@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="/static/base.css">
 </head>
 <body class="bg-blue-100 min-h-screen p-5">
-    <div class="grid grid-cols-4 h-full gap-5 mx-auto">
-        <div class="col-span-3 pl-5">
+    <div class="grid grid-cols-5 h-full gap-5 mx-auto">
+        <div class="col-span-4 pl-5">
             <header class="flex flex-row w-full items-center mb-2">
                 <h1 class="flex text-2xl font-bold w-[120px]"> 
                     <span class="bg-white rounded-full p-4 py-2.5"> > Tato</span>
@@ -26,9 +26,9 @@
                 <div class="pt-8">
                     <div class="flex flex-col p-10 bg-white">
                         <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">K1 - Distribution</h3>
-                        <div class="border-2 border-gray-700">
-                            <div class="grid grid-cols-3 h-20 text-sm">
-                                <div class="grid grid-cols-2 text-center">
+                        <div class="border-2 border-gray-700 text-xs">
+                            <div class="grid grid-cols-3 h-20">
+                                <div class="grid grid-cols-2 text-center px-2">
                                     <span id="zone-4-total">12</span>
                                     <span id="zone-4-%">36%</span>
                                     <span id="zone-4-*%">42%</span>
@@ -48,7 +48,7 @@
                                     <span id="zone-2-=%">33%</span>
                                 </div>
                             </div>
-                            <div class="border-t-2 border-gray-700 h-40 grid grid-cols-3 text-sm">
+                            <div class="border-t-2 border-gray-700 h-40 grid grid-cols-3">
                                 <div class="grid grid-cols-2 text-center">
                                     <span id="zone-5-total">0</span>
                                     <span id="zone-5-%">0%</span>
@@ -110,7 +110,7 @@
                     </div>
                 </div>
 
-                <div class="pt-8">
+                <!-- <div class="pt-8">
                     <div class="flex flex-col p-10 bg-white">
                         <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">Heatmap</h3>
                         <div class="border-2 border-gray-700">
@@ -147,15 +147,15 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
     
             </div>
             
 
         </div>
-        <div class="col-span-1 bg-gray-100 p-4 max-h-screen rounded-lg">
-            <h2 class="text-sm mb-2 text-gray-500">Recorded Actions (<span id="actions-count">0</span>)</h2>
-            <div class="overflow-scroll" id="actions-container">
+        <div class="col-span-1 bg-gray-100 max-h-screen rounded-lg py-4">
+            <h2 class="text-sm mb-2 text-gray-500 px-4">Recorded Actions (<span id="actions-count">0</span>)</h2>
+            <div class="overflow-scroll px-4" id="actions-container">
                 <ol class="flex flex-col gap-2 h-full" id="actions-list"></ol>
             </div>
             

@@ -12,5 +12,6 @@ var Storage service = &sqliteStorage{}
 
 type service interface {
 	Create(context.Context, tato.Action) error
+	Destroy(context.Context, string) error
 	List(context.Context) ([]tato.Action, error)
 }
