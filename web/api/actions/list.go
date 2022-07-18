@@ -7,6 +7,7 @@ import (
 	"github.com/paganotoni/tato/storage/actions"
 )
 
+// List the recoded actions.
 func List(w http.ResponseWriter, r *http.Request) {
 	type action struct {
 		ID        string

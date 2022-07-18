@@ -92,7 +92,7 @@ These are the features Tato has.
 
 Core
 - [x] Action parsing
-- [ ] Storage
+- [x] Storage
 - [ ] Setter position tracking (P1-P6)
 - [ ] Service tracking
 - [ ] Compound codes (e.g. 12S+9,2,7*4)
