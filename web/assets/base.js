@@ -1,4 +1,8 @@
+
+let gameId = ""
+
 document.addEventListener('DOMContentLoaded', () => {
+    gameId = document.getElementById("game").dataset.gameId
     refreshActions();
 
     let cmdInput = document.querySelector('#cmd-input');
@@ -10,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let value = cmdInput.value;
         cmdInput.value = '';
 
-        fetch('/api/actions/create',{
+        fetch(`/api/${gameId}/actions/create`,{
             method: 'POST',
             body: JSON.stringify({
                 input: value
@@ -39,7 +43,7 @@ function actionHTML(action) {
 }
 
 function deleteAction(id) {
-    fetch('/api/actions/destroy/'+id, {
+    fetch(`/api/${gameId}/actions/destroy/`+id, {
         method: 'DELETE',
     }).then(response => {
         if(response.status != 200){
@@ -54,7 +58,7 @@ function refreshActions() {
     let actionsList = document.querySelector('#actions-list');
     actionsList.innerHTML = '';
     
-    fetch('/api/actions/list').then(response => {
+    fetch(`/api/${gameId}/actions/list`).then(response => {
         return response.json();
     }).then(data => {
         document.getElementById("actions-count").innerHTML = data.length
@@ -70,7 +74,7 @@ function refreshActions() {
         })
     })
 
-    fetch('/api/stats/k1').then(response => {
+    fetch(`/api/${gameId}/stats/k1`).then(response => {
         return response.json();
     }).then(data => {
         let total =  0

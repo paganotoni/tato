@@ -1,0 +1,1 @@
+DELETE FROM actions WHERE id = ?

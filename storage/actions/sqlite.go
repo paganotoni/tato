@@ -12,8 +12,12 @@ import (
 var (
 	//go:embed insert.sql
 	insertStatement string
+
 	//go:embed list.sql
 	listQuery string
+
+	//go:embed delete.sql
+	deleteStatement string
 )
 
 type sqliteStorage struct{}
@@ -72,6 +76,6 @@ func (ss *sqliteStorage) List(ctx context.Context) ([]tato.Action, error) {
 }
 
 func (ss *sqliteStorage) Destroy(ctx context.Context, id string) error {
-	_, err := storage.DB.ExecContext(ctx, "DELETE FROM actions WHERE id = ?", id)
+	_, err := storage.DB.ExecContext(ctx, deleteStatement, id)
 	return err
 }
