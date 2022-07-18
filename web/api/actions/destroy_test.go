@@ -5,6 +5,7 @@ import (
 	"net/http/httptest"
 	"testing"
 
+	"github.com/gorilla/mux"
 	"github.com/paganotoni/tato"
 	sta "github.com/paganotoni/tato/storage/actions"
 	"github.com/paganotoni/tato/web/api/actions"
@@ -23,7 +24,10 @@ func TestDestroy(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest("DELETE", "/api/actions/destroy/1", nil)
 
-		actions.Destroy(w, r)
+		router := mux.NewRouter()
+		router.HandleFunc("/api/actions/destroy/{id}", actions.Destroy)
+		router.ServeHTTP(w, r)
+
 		if len(mst.Actions) != 1 {
 			t.Errorf("Expected 1 action, got %d", len(mst.Actions))
 		}
@@ -44,7 +48,10 @@ func TestDestroy(t *testing.T) {
 		w := httptest.NewRecorder()
 		r := httptest.NewRequest("DELETE", "/api/actions/destroy/"+ac.ID, nil)
 
-		actions.Destroy(w, r)
+		router := mux.NewRouter()
+		router.HandleFunc("/api/actions/destroy/{id}", actions.Destroy)
+		router.ServeHTTP(w, r)
+
 		if len(mst.Actions) != 0 {
 			t.Errorf("Expected 0 action, got %d", len(mst.Actions))
 		}

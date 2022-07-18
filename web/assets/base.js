@@ -60,7 +60,7 @@ function refreshActions() {
         })
     })
 
-    fetch('/api/stats/k1-distribution').then(response => {
+    fetch('/api/stats/k1').then(response => {
         return response.json();
     }).then(data => {
         let total =  0

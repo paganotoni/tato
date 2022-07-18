@@ -3,19 +3,15 @@ package actions
 import (
 	"database/sql"
 	"errors"
-	"fmt"
 	"net/http"
-	"strings"
 
+	"github.com/gorilla/mux"
 	"github.com/paganotoni/tato/storage/actions"
 )
 
 func Destroy(w http.ResponseWriter, r *http.Request) {
-
-	id := strings.Split(r.URL.Path, "/")[4]
+	id := mux.Vars(r)["id"]
 	err := actions.Storage.Destroy(r.Context(), id)
-
-	fmt.Println("ID: ", id)
 
 	if errors.Is(err, sql.ErrNoRows) {
 		w.WriteHeader(http.StatusNotFound)
