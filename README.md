@@ -19,6 +19,9 @@ Some example of actions could be:
 12SF+9
 ```
 
+<details>
+<summary> 👀 More on Tato</summary>
+
 To understand this better we should go part by part on these elements:
 
 ### Player number
@@ -76,21 +79,23 @@ One of the most important elements is the evaluation of the action as it allows 
 These are optional and zones can be from 1 to 9. One important thing that when we enter only one zone it means different things depending on the action type:
 
 ```
-12S+9   > Served TO zone 9
-12R=2   > Reception FROM the zone 2
-12P=2   > Pass TO the zone 2
-12A*3   > Attack FROM the zone 3
-12B*3   > Block FROM the zone 3
-12D*3   > Block FROM the zone 3
+12S+9  >  Served TO zone 9
+12R=2  >  Reception FROM the zone 2
+12P=2  >  Pass TO the zone 2
+12A*3  >  Attack FROM the zone 3
+12B*3  >  Block FROM the zone 3
+12D*3  >  Block FROM the zone 3
 ```
 
 When both specified the first is starting and the second is ending zone.
+
+</details>
 
 ## Product features
 
 These are the features Tato has.
 
-Core
+### Core
 - [x] Action parsing
 - [x] Storage
 - [ ] Games
@@ -99,7 +104,7 @@ Core
 - [ ] Compound codes (e.g. 12S+9,2,7*4)
 - [ ] Kind autocompletion (p.e. 8S= and then 12+)
 
-UI
+### UI
 - [ ] Feature: Capture Actions
 - [ ] Feature: List of captured actions
 - [ ] Feature: Remove action
