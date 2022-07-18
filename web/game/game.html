@@ -1,173 +1,99 @@
-<!DOCTYPE html>
-<html lang="en" class="min-h-full bg-green-200">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tato - Game View</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="/static/base.js"></script>
-
-    <link rel="stylesheet" href="/static/base.css">
-</head>
-<body class="bg-blue-100 min-h-screen p-5">
-    <div class="grid grid-cols-5 h-full gap-5 mx-auto">
-        <div class="col-span-4 pl-5">
-            <header class="flex flex-row w-full jusitfy-items-center mb-2">
-                <h1 class="flex text-2xl font-bold w-[120px] items-start"> 
-                    <span class="bg-white rounded-full p-4 py-2.5"> > Tato</span>
-                </h1>
-                
-                <div class="flex flex-grow flex-col">
-                    <div class="bg-gray-100 rounded w-full p-2 px-4 rounded-lg mb-2 flex flex-row align-center"> 
-                        <span class="font-bold"> ATL vs RUS </span>
-                        <span class="flex flex-row flex-grow justify-end gap-2">
-                            <span class="rounded-full bg-red-200 px-1.5 py-1 font-bold text-xs">P1</span>
-                            <span class="rounded-full bg-blue-200 px-1.5 py-1 font-bold text-xs">P3</span>    
-                        </span>
-                    </div>
-                    <input type="text" id="cmd-input" class="p-3 rounded-lg text-lg w-full" placeholder="> Enter action codes here, p.e 12A+ and return to process" autofocus >
+<div class="grid grid-cols-5 h-full gap-5 mx-auto">
+    <div class="col-span-4 pl-5">
+        <header class="flex flex-row w-full jusitfy-items-center mb-2">
+            <h1 class="flex text-2xl font-bold w-[120px] items-start"> 
+                <span class="bg-white rounded-full p-4 py-2.5"> > Tato</span>
+            </h1>
+            
+            <div class="flex flex-grow flex-col">
+                <div class="bg-gray-100 rounded w-full p-2 px-4 rounded-lg mb-2 flex flex-row align-center"> 
+                    <span class="font-bold"> ATL vs RUS </span>
+                    <span class="flex flex-row flex-grow justify-end gap-2">
+                        <span class="rounded-full bg-red-200 px-1.5 py-1 font-bold text-xs">P1</span>
+                        <span class="rounded-full bg-blue-200 px-1.5 py-1 font-bold text-xs">P3</span>    
+                    </span>
                 </div>
-            </header>
-            <div class="pl-[120px] grid grid-cols-3 gap-5">
-                <div class="pt-8">
-                    <div class="flex flex-col p-10 bg-white">
-                        <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">K1 - Distribution</h3>
-                        <div class="border-2 border-gray-700 text-xs">
-                            <div class="grid grid-cols-3 h-20">
-                                <div class="grid grid-cols-2 text-center p-2">
-                                    <span id="zone-4-total">0</span>
-                                    <span id="zone-4-%">0%</span>
-                                    <span id="zone-4-*%">0%</span>
-                                    <span id="zone-4-=%">0%</span>
-                                </div>   
-                            
-                                <div class="grid grid-cols-2 text-center border-x border-gray-700 py-2">
-                                    <span id="zone-3-total">0</span>
-                                    <span id="zone-3-%">0%</span>
-                                    <span id="zone-3-*%">0%</span>
-                                    <span id="zone-3-=%">0%</span>
-                                </div>
-                                <div class="grid grid-cols-2 text-center p-2">
-                                    <span id="zone-2-total">0</span>
-                                    <span id="zone-2-%">0%</span>
-                                    <span id="zone-2-*%">0%</span>
-                                    <span id="zone-2-=%">0%</span>
-                                </div>
+                <input type="text" id="cmd-input" class="p-3 rounded-lg text-lg w-full" placeholder="> Enter action codes here, p.e 12A+ and return to process" autofocus >
+            </div>
+        </header>
+        <div class="pl-[120px] grid grid-cols-3 gap-5">
+            <div class="pt-8">
+                <div class="flex flex-col p-10 bg-white">
+                    <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">K1 - Distribution</h3>
+                    <div class="border-2 border-gray-700 text-xs">
+                        <div class="grid grid-cols-3 h-20">
+                            <div class="grid grid-cols-2 text-center p-2 items-center">
+                                <span id="zone-4-total">0</span>
+                                <span id="zone-4-%">0%</span>
+                                <span id="zone-4-*%">0%</span>
+                                <span id="zone-4-=%">0%</span>
+                            </div>   
+                        
+                            <div class="grid grid-cols-2 text-center border-x border-gray-700 py-2 items-center">
+                                <span id="zone-3-total">0</span>
+                                <span id="zone-3-%">0%</span>
+                                <span id="zone-3-*%">0%</span>
+                                <span id="zone-3-=%">0%</span>
                             </div>
-                            <div class="border-t-2 border-gray-700 h-32 grid grid-cols-3">
-                                <div class="grid grid-cols-2 text-center p-2">
-                                    <span id="zone-5-total">0</span>
-                                    <span id="zone-5-%">0%</span>
-                                    <span id="zone-5-*%">0%</span>
-                                    <span id="zone-5-=%">0%</span>
-
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>   
-                            
-                                <div class="grid grid-cols-2 text-center border-x border-gray-700 p-2">
-                                    <span id="zone-6-total">0</span>
-                                    <span id="zone-6-%">0%</span>
-                                    <span id="zone-6-*%">0%</span>
-                                    <span id="zone-6-=%">0%</span>
-
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <div class="grid grid-cols-2 text-center p-2">
-                                    <span id="zone-1-total">0</span>
-                                    <span id="zone-1-%">0%</span>
-                                    <span id="zone-1-*%">0%</span>
-                                    <span id="zone-1-=%">0%</span>
-
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    
-                                </div>
+                            <div class="grid grid-cols-2 text-center p-2 items-center">
+                                <span id="zone-2-total">0</span>
+                                <span id="zone-2-%">0%</span>
+                                <span id="zone-2-*%">0%</span>
+                                <span id="zone-2-=%">0%</span>
                             </div>
                         </div>
-                        <div class="grid grid-cols-4 text-center pt-3 px-2 justify-start">
-                            <div class="flex flex-col">
-                                <span class="text-xs font-bold">TOT</span>
-                                <span id="total-attacks">33</span>
+                        <div class="border-t-2 border-gray-700 h-32 grid grid-cols-3 ">
+                            <div class="grid grid-cols-2 text-center p-2 items-top pb-12 ">
+                                <span id="zone-5-total">0</span>
+                                <span id="zone-5-%">0%</span>
+                                <span id="zone-5-*%">0%</span>
+                                <span id="zone-5-=%">0%</span>
+                            </div>   
+                        
+                            <div class="grid grid-cols-2 text-center border-x border-gray-700 p-2 items-top pb-12 ">
+                                <span id="zone-6-total">0</span>
+                                <span id="zone-6-%">0%</span>
+                                <span id="zone-6-*%">0%</span>
+                                <span id="zone-6-=%">0%</span>
                             </div>
+                            <div class="grid grid-cols-2 text-center p-2 items-top pb-12">
+                                <span id="zone-1-total">0</span>
+                                <span id="zone-1-%">0%</span>
+                                <span id="zone-1-*%">0%</span>
+                                <span id="zone-1-=%">0%</span>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 text-center pt-3 px-2 justify-start">
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold">TOT</span>
+                            <span id="total-attacks">33</span>
+                        </div>
 
-                            <div class="flex flex-col">
-                                <span class="text-xs font-bold">TOT%</span>
-                                <span>100%</span>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold">TOT%</span>
+                            <span>100%</span>
+                        </div>
 
-                            <div class="flex flex-col">
-                                <span class="text-xs font-bold">A*%</span>
-                                <span>0</span>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold">A*%</span>
+                            <span>0</span>
+                        </div>
 
-                            <div class="flex flex-col">
-                                <span class="text-xs font-bold">A=%</span>
-                                <span>0</span>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-xs font-bold">A=%</span>
+                            <span>0</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="pt-8">
-                    <div class="flex flex-col p-10 bg-white">
-                        <h3 class="mb-5 text-center text-md bg-gray-200 block font-bold">Heatmap</h3>
-                        <div class="border-2 border-gray-700">
-                            <div class="grid grid-cols-3 h-20">
-                                <div class="grid grid-cols-2 text-center">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>   
-                            
-                                <div class="grid grid-cols-2 text-center border-x border-gray-700">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <div class="grid grid-cols-2 text-center">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div class="flex flex-row border-t-2 border-gray-700 h-20">
-                                <div class="flex-grow text-center"></div>
-                                <div class="flex-grow text-center h-20 border-x border-gray-700"></div>
-                                <div class="flex-grow text-center h-20"></div>
-                            </div>
-                            <div class="flex flex-row">
-                                <div class="flex-grow text-center"></div>
-                                <div class="flex-grow text-center h-20 border-x border-gray-700"></div>
-                                <div class="flex-grow text-center h-20"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-    
             </div>
-            
-
-        </div>
-        <div class="col-span-1 bg-gray-100 max-h-screen rounded-lg py-4">
-            <h2 class="text-sm mb-2 text-gray-500 px-4">Recorded Actions (<span id="actions-count">0</span>)</h2>
-            <div class="overflow-scroll px-4" id="actions-container">
-                <ol class="flex flex-col gap-2 h-full" id="actions-list"></ol>
-            </div>
-            
         </div>
     </div>
-</body>
-</html>
+    <div class="col-span-1 bg-gray-100 max-h-screen rounded-lg py-4">
+        <h2 class="text-sm mb-2 text-gray-500 px-4">Recorded Actions (<span id="actions-count">0</span>)</h2>
+        <div class="overflow-scroll px-4" id="actions-container">
+            <ol class="flex flex-col gap-2 h-full" id="actions-list"></ol>
+        </div>
+    </div>
+</div>
