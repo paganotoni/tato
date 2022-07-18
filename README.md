@@ -93,6 +93,7 @@ These are the features Tato has.
 Core
 - [x] Action parsing
 - [x] Storage
+- [ ] Games
 - [ ] Setter position tracking (P1-P6)
 - [ ] Service tracking
 - [ ] Compound codes (e.g. 12S+9,2,7*4)
@@ -105,7 +106,8 @@ UI
 - [ ] Feature: Distribution of actions 
 
 Roadmap:
-- Games, Sets, Points 
+- Set Tracking
+- Points Tracking
 
 
 
