@@ -17,6 +17,10 @@ The Tato language allows to capture Volleyball actions encoded in the following 
 Some example of actions could be:
 ```
 12SF+9
+3S+
+3A+22
+3A=
+18D+
 ```
 
 <details>
