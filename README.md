@@ -109,10 +109,14 @@ These are the features Tato has.
 - [ ] Kind autocompletion (p.e. 8S= and then 12+)
 
 ### UI
-- [ ] Feature: Capture Actions
-- [ ] Feature: List of captured actions
-- [ ] Feature: Remove action
-- [ ] Feature: Distribution of actions 
+- [x] Feature: Capture Actions
+- [x] Feature: List of captured actions
+- [x] Feature: Remove action
+- [ ] Game management
+- [ ] Feature: Distribution of actions (v0)
+- [ ] Navigation across games
+- [ ] Authentication
+- [ ] Export actions to CSV
 
 Roadmap:
 - Set Tracking
